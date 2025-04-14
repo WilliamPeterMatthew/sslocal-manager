@@ -9,12 +9,4 @@ services:
       - ./.ssconfig.json:/.ssconfig.json:ro
     ports:
       - "1080:1080"   # ss-local 代理端口
-      - "5111:5000"   # 管理界面端口
-    
-networks:
-  default:
-    enable_ipv6: true
-    ipam:
-      config:
-      - subnet: "172.20.17.0/24"
-      - subnet: "fd00:db20:17::/64"
+      - "5000:5000"   # 管理界面端口
