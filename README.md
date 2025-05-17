@@ -55,8 +55,8 @@ Apache Example
 
     ProxyRequests Off
     ProxyPreserveHost On
-    ProxyPass / http://localhost:<the port you set in Step 6>/
-    ProxyPassReverse / http://localhost:<the port you set in Step 6>/
+    ProxyPass / http://localhost:<the port you set in Step 3>/
+    ProxyPassReverse / http://localhost:<the port you set in Step 3>/
 
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
@@ -70,7 +70,7 @@ server {
     server_name example.com;
 
     location / {
-        proxy_pass http://localhost:<the port you set in Step 6>;
+        proxy_pass http://localhost:<the port you set in Step 3>;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
