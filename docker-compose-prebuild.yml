@@ -1,6 +1,18 @@
 version: '3'
 
 services:
+  ss-libev:
+    image: shadowsocks/shadowsocks-libev
+    container_name: ss-libev
+    restart: always
+    # ports: # 映射端口，如果需要让其他机器访问，请取消注释
+    #   - '8388:8388/udp'
+    #   - '8388:8388'
+  environment:
+      - PASSWORD=Password
+      - TIMEOUT=300
+      - METHOD=aes-256-gcm
+      - DNS_ADDRS=114.114.114.114,8.8.8.8
   ss-manager:
     image: petermatthew/sslocal-manager
     container_name: ss-manager
