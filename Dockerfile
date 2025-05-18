@@ -25,9 +25,9 @@ RUN set -x \
       linux-headers \
       mbedtls-dev \
       pcre-dev \
-      pax-utils \
+      pax-utils
  # Build & install
- && cd /tmp/repo \
+ RUN cd /tmp/repo \
  && ./autogen.sh \
  && ./configure --prefix=/usr/local --disable-documentation \
  && make -j$(getconf _NPROCESSORS_ONLN) \
