@@ -12,7 +12,7 @@ Build via Docker Compose, using the Python Flask framework.
 ## Step 1
 Clone this repo.
 ```bash
-git clone https://github.com/WilliamPeterMatthew/resend-mail-webpage.git
+git clone https://github.com/WilliamPeterMatthew/sslocal-manager.git
 ```
 
 ## Step 2
