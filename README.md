@@ -7,6 +7,15 @@ A webpage to manage ss-local
 
 Build via Docker Compose, using the Python Flask framework.
 
+# ssserver-libev
+A backup image to start ss-server
+
+![Docker Pulls](https://img.shields.io/docker/pulls/petermatthew/ssserver-libev)
+![Docker Image Size](https://img.shields.io/docker/image-size/petermatthew/ssserver-libev)
+![Docker Image Version](https://img.shields.io/docker/v/petermatthew/ssserver-libev)
+
+Build via Docker Compose, Source Repo: [shadowsocks-libev](https://github.com/shadowsocks/shadowsocks-libev/).
+
 ## Step 1
 Clone this repo.
 ```bash
