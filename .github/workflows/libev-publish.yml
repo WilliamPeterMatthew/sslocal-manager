@@ -24,6 +24,8 @@ jobs:
           ref: ssserver-libev
           submodules: true
 
+      - uses: docker/setup-qemu-action@v3
+      
       - uses: docker/setup-buildx-action@v3
 
       - name: Login to ${{ matrix.registry }}
