@@ -10,7 +10,7 @@ ENV DNS_ADDRS="114.114.114.114,8.8.8.8"
 ENV TZ=Asia/Shanghai
 ENV ARGS=
 
-COPY . /tmp/repo
+COPY src/ /tmp/repo/
 RUN set -x \
  # Build environment setup
  && apk add --no-cache --virtual .build-deps \
@@ -25,9 +25,8 @@ RUN set -x \
       linux-headers \
       mbedtls-dev \
       pcre-dev \
-      pax-utils
  # Build & install
- RUN cd /tmp/repo \
+ && cd /tmp/repo \
  && ./autogen.sh \
  && ./configure --prefix=/usr/local --disable-documentation \
  && make -j$(getconf _NPROCESSORS_ONLN) \
