@@ -2,7 +2,7 @@ version: '3'
 
 services:
   ss-libev:
-    image: shadowsocks/shadowsocks-libev
+    image: petermatthew/ssserver-libev
     container_name: ss-libev
     restart: always
     # ports: # 映射端口，如果需要让其他机器访问，请取消注释

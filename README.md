@@ -10,6 +10,11 @@ Build via Docker Compose, using the Python Flask framework.
 ## Step 1
 Clone this repo.
 ```bash
+git clone --recurse-submodules https://github.com/WilliamPeterMatthew/sslocal-manager.git -b proxy_local
+```
+
+If you want to use a pre-build version of the image instead of building locally, you can use the following command.
+```bash
 git clone https://github.com/WilliamPeterMatthew/sslocal-manager.git -b proxy_local
 ```
 
