@@ -25,7 +25,6 @@ RUN set -x \
       linux-headers \
       mbedtls-dev \
       pcre-dev \
-      pax-utils \
  # Build & install
  && cd /tmp/repo \
  && ./autogen.sh \
