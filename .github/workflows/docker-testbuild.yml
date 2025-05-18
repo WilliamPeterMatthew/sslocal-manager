@@ -35,5 +35,5 @@ jobs:
           file: ./Dockerfile
           push: false
           tags: |
-            sslocal-test:latest
-            sslocal-test:${{ steps.extract-date.outputs.date }}
+            sslocal-manager-test:latest
+            sslocal-manager-test:${{ steps.extract-date.outputs.date }}
