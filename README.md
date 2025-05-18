@@ -16,7 +16,7 @@ git clone https://github.com/WilliamPeterMatthew/sslocal-manager.git
 ```
 
 ## Step 2
-Create `.ssconfig.json` file like this.
+Modify `.ssconfig.json` file like this.
 ```
   {
     "server": "ss.example.com",
