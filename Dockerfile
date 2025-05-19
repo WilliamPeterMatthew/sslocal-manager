@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM alpine:3.21
 LABEL maintainer="kev <noreply@datageek.info>, Sah <contact@leesah.name>, vndroid <waveworkshop@outlook.com>"
 
 ENV SERVER_ADDR=0.0.0.0
