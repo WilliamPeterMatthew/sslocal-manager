@@ -24,8 +24,6 @@ jobs:
           ref: dev
           submodules: recursive
 
-      - uses: docker/setup-qemu-action@v3
-
       - uses: docker/setup-buildx-action@v3
 
       - name: Login to ${{ matrix.registry }}
@@ -55,5 +53,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/ssserver-libev-dev:{1}', steps.lowercase-owner.outputs.lower_owner, steps.extract-date.outputs.date) || format('{0}/ssserver-libev-dev:{1}', secrets.DOCKER_USERNAME, steps.extract-date.outputs.date) }}
-            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/ssserver-libev-dev:latest', steps.lowercase-owner.outputs.lower_owner) || format('{0}/ssserver-libev-dev:latest', secrets.DOCKER_USERNAME) }}
+            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal-manager-dev:{1}', steps.lowercase-owner.outputs.lower_owner, steps.extract-date.outputs.date) || format('{0}/sslocal-manager-dev:{1}', secrets.DOCKER_USERNAME, steps.extract-date.outputs.date) }}
+            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal-manager-dev:latest', steps.lowercase-owner.outputs.lower_owner) || format('{0}/sslocal-manager-dev:latest', secrets.DOCKER_USERNAME) }}
