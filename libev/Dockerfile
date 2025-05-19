@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM alpine:3.21
 LABEL maintainer="kev <noreply@datageek.info>, Sah <contact@leesah.name>, vndroid <waveworkshop@outlook.com>"
 
 ENV SERVER_ADDR=0.0.0.0
@@ -33,7 +33,7 @@ RUN set -x \
  && make install \
  && cd /usr/local/bin \
  && ls /usr/local/bin/ss-* | xargs -n1 setcap cap_net_bind_service+ep \
- && strip $(ls /usr/local/bin | grep -Ev 'ss-nat') \
+ && strip $(ls /usr/local/bin/ss-* | grep -Ev 'ss-nat') \
  && apk del .build-deps \
  # Runtime dependencies setup
  && apk add --no-cache \
