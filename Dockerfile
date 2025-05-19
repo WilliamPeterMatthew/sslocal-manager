@@ -1,14 +1,6 @@
-FROM alpine:3.19
-LABEL maintainer="kev <noreply@datageek.info>, Sah <contact@leesah.name>, vndroid <waveworkshop@outlook.com>"
+FROM python:3.12-alpine
 
-ENV SERVER_ADDR=0.0.0.0
-ENV SERVER_PORT=8388
-ENV PASSWORD=Password
-ENV METHOD=aes-256-gcm
-ENV TIMEOUT=300
-ENV DNS_ADDRS="114.114.114.114,8.8.8.8"
-ENV TZ=Asia/Shanghai
-ENV ARGS=
+LABEL maintainer="kev <noreply@datageek.info>, Sah <contact@leesah.name>, vndroid <waveworkshop@outlook.com>"
 
 COPY src/ /tmp/repo/
 RUN set -x \
@@ -25,6 +17,7 @@ RUN set -x \
       linux-headers \
       mbedtls-dev \
       pcre-dev \
+      procps \
  # Build & install
  && cd /tmp/repo \
  && ./autogen.sh \
@@ -45,11 +38,14 @@ RUN set -x \
       | sort -u) \
  && rm -rf /tmp/repo
 
-COPY ./entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-ENTRYPOINT ["docker-entrypoint.sh"]
+# 安装Python依赖
+RUN pip install flask
 
-EXPOSE 8388
+WORKDIR /app
+COPY templates/ /app/templates/
+COPY ./app.py /app/app.py
 
-STOPSIGNAL SIGINT
+# 暴露端口
+EXPOSE 5000 1080
 
-CMD ["ss-server"]
+CMD ["python", "app.py"]
