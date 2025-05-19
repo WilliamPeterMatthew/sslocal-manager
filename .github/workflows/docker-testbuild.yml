@@ -3,7 +3,7 @@ name: Build Docker Image
 on:
   push:
     branches:
-      - ssserver-libev
+      - dev
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ssserver-libev
+          ref: dev
           submodules: recursive
 
       - uses: docker/setup-qemu-action@v3
