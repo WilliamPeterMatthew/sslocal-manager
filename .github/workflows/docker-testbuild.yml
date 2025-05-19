@@ -3,7 +3,7 @@ name: Build Docker Image
 on:
   push:
     branches:
-      - dev
+      - master
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: dev
+          ref: master
           submodules: recursive
 
       - uses: docker/setup-qemu-action@v3
