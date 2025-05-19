@@ -2,7 +2,7 @@ version: '3'
 
 services:
   ss-manager:
-    image: petermatthew/ssserver-manager
+    image: petermatthew/sslocal-manager
     container_name: ss-manager
     restart: always
     volumes:
