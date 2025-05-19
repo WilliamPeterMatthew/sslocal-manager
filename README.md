@@ -76,8 +76,8 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 
-    error_log /var/log/nginx/resendmail_error.log;
-    access_log /var/log/nginx/resendmail_access.log;
+    error_log /var/log/nginx/rsslocal_manager_error.log;
+    access_log /var/log/nginx/rsslocal_manager_access.log;
 }
 
 ```
