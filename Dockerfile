@@ -1,6 +1,8 @@
 FROM python:3.12-alpine
-
 LABEL maintainer="kev <noreply@datageek.info>, Sah <contact@leesah.name>, vndroid <waveworkshop@outlook.com>"
+
+ENV TZ=Asia/Shanghai
+ENV ARGS=
 
 COPY src/ /tmp/repo/
 RUN set -x \
