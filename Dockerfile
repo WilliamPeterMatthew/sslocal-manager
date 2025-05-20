@@ -18,6 +18,6 @@ COPY ./app.py /app/app.py
 RUN chmod +x /app/app.py
 
 # 暴露端口
-EXPOSE 5000 1080
+EXPOSE 5000 1080/udp 1080/tcp
 
 CMD ["python", "app.py"]

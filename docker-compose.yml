@@ -8,5 +8,6 @@ services:
     volumes:
       - ./.ssconfig.json:/.ssconfig.json:ro
     ports:
-      - "1080:1080"   # ss-local 代理端口
+      - "1080:1080/udp"   # ss-local 代理端口
+      - "1080:1080/tcp"   # ss-local 代理端口
       - "5000:5000"   # 管理界面端口
