@@ -7,7 +7,7 @@ services:
     restart: always
     # ports: # 映射端口，如果需要让其他机器访问，请取消注释
     #   - '8388:8388/udp'
-    #   - '8388:8388'
+    #   - '8388:8388/tcp'
     environment:
       - PASSWORD=Password
       - TIMEOUT=300
@@ -20,5 +20,6 @@ services:
     volumes:
       - ./.ssconfig.json:/.ssconfig.json:ro
     ports:
-      - "1080:1080"   # ss-local 代理端口
+      - "1080:1080/udp"   # ss-local 代理端口
+      - "1080:1080/tcp"   # ss-local 代理端口
       - "5000:5000"   # 管理界面端口
