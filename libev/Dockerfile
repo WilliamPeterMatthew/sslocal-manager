@@ -46,6 +46,7 @@ RUN set -x \
  && rm -rf /tmp/repo
 
 COPY ./entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 8388
