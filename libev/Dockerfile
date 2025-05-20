@@ -16,6 +16,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
  && rm -rf /var/lib/apt/lists/*
 
 COPY ./entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 8388
