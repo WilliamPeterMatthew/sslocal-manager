@@ -46,6 +46,7 @@ RUN pip install flask
 WORKDIR /app
 COPY templates/ /app/templates/
 COPY ./app.py /app/app.py
+RUN chmod +x /app/app.py
 
 # 暴露端口
 EXPOSE 5000 1080
