@@ -3,7 +3,7 @@
 
 set -e
 
-if [ "$1" = "ss-server" ]; then
+if [ "$1" = "ss-local" ]; then
     COREVER=$(uname -r | grep -Eo '[0-9].[0-9]+' | sed -n '1,1p')
     CMV=$(echo $COREVER | awk -F '.' '{print $1}')
     CSV=$(echo $COREVER | awk -F '.' '{print $2}')
@@ -15,17 +15,13 @@ if [ "$1" = "ss-server" ]; then
     if [[ -f "/var/run/secrets/$PASSWORD_SECRET" ]]; then
         PASSWORD=$(cat "/var/run/secrets/$PASSWORD_SECRET")
     fi
-    
-    if [[ ! -z "$DNS_ADDRS" ]]; then
-        DNS="-d $DNS_ADDRS"
-    fi
 
     if [ $(echo "$CMV >= 3" | bc) ]; then
         if [ $(echo "$CSV > 7" | bc) ]; then
         TFO='--fast-open'
         fi
     fi 
-    RT_ARGS="-s $SERVER -p $SERVER_PORT -k ${PASSWORD:-$(hostname)} -t $TIMEOUT -m $METHOD -a nobody -u $DNS $TFO $ARGS"
+    RT_ARGS="-s $SERVER -p $SERVER_PORT -b $LOCAL_ADDRESS -l $LOCAL_PORT -k ${PASSWORD:-$(hostname)} -t $TIMEOUT -m $METHOD -u $TFO $ARGS"
 fi
 
 exec $@ $RT_ARGS

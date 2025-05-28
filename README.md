@@ -1,20 +1,18 @@
-# ssserver-libev
-A backup image to start ss-server
+# sslocal-libev
+A backup image to start ss-local
 
-![Docker Pulls](https://img.shields.io/docker/pulls/petermatthew/ssserver-libev)
-![Docker Image Size](https://img.shields.io/docker/image-size/petermatthew/ssserver-libev)
-![Docker Image Version](https://img.shields.io/docker/v/petermatthew/ssserver-libev)
+![Docker Pulls](https://img.shields.io/docker/pulls/petermatthew/sslocal-libev)
+![Docker Image Size](https://img.shields.io/docker/image-size/petermatthew/sslocal-libev)
+![Docker Image Version](https://img.shields.io/docker/v/petermatthew/sslocal-libev)
 
 Build via Docker Compose, Source Repo: [shadowsocks-libev](https://github.com/shadowsocks/shadowsocks-libev/).
 
-> There is a solution to deploy ssserver-libev and ss-manager to the local machine at the same time, located in the branch [proxy_local](https://github.com/WilliamPeterMatthew/sslocal-manager/tree/proxy_local)
-> 
 > There is a solution to deploy ssserver-libev and sslocal-libev to the local machine at the same time, located in the branch [proxy-libev](https://github.com/WilliamPeterMatthew/sslocal-manager/tree/proxy-libev)
 
 ## Step 1
 Clone this repo.
 ```bash
-git clone https://github.com/WilliamPeterMatthew/sslocal-manager.git -b ssserver-libev
+git clone https://github.com/WilliamPeterMatthew/sslocal-manager.git -b sslocal-libev
 ```
 
 ## Step 2
