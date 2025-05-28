@@ -11,3 +11,7 @@ services:
       - "1080:1080/udp"   # ss-local 代理端口
       - "1080:1080/tcp"   # ss-local 代理端口
       - "5000:5000"   # 管理界面端口
+    
+# networks: # 网络配置，需要使用 IPv6 时取消注释
+#   default:
+#     enable_ipv6: true
