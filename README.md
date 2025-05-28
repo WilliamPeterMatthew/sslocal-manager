@@ -1,11 +1,11 @@
-# sslocal-manager
-A webpage to manage ss-local
+# sslocal-libev
+A backup image to start ss-local
 
-![Docker Pulls](https://img.shields.io/docker/pulls/petermatthew/sslocal-manager)
-![Docker Image Size](https://img.shields.io/docker/image-size/petermatthew/sslocal-manager)
-![Docker Image Version](https://img.shields.io/docker/v/petermatthew/sslocal-manager)
+![Docker Pulls](https://img.shields.io/docker/pulls/petermatthew/sslocal-libev)
+![Docker Image Size](https://img.shields.io/docker/image-size/petermatthew/sslocal-libev)
+![Docker Image Version](https://img.shields.io/docker/v/petermatthew/sslocal-libev)
 
-Build via Docker Compose, using the Python Flask framework.
+Build via Docker Compose, Source Repo: [shadowsocks-libev](https://github.com/shadowsocks/shadowsocks-libev/).
 
 # ssserver-libev
 A backup image to start ss-server
@@ -19,28 +19,13 @@ Build via Docker Compose, Source Repo: [shadowsocks-libev](https://github.com/sh
 ## Step 1
 Clone this repo.
 ```bash
-git clone https://github.com/WilliamPeterMatthew/sslocal-manager.git -b proxy_local
+git clone https://github.com/WilliamPeterMatthew/sslocal-manager.git -b proxy-libev
 ```
 
 ## Step 2
-Modify `.ssconfig.json` file like this.
-```
-  {
-    "server": "ssserver-libev",
-    "server_port": 8388,
-    "local_address": "0.0.0.0",
-    "local_port": 1080,
-    "password": "Password",
-    "timeout": 300,
-    "method": "aes-256-gcm"
-  }
-
-```
-
-## Step 3
 Modify or keep the ports in `docker-compose.yml` file (use `docker-compose-prebuild.yml` file if you want to use a pre-build version of the image instead of building locally) .
 
-## Step 4
+## Step 3
 Run the project by executing the following command in the directory.
 ```bash
 docker-compose up -d
@@ -52,7 +37,7 @@ docker-compose -f docker-compose-prebuild.yml up -d
 ```
 
 ## Congratulations
-Now you can access the web page on the port you set in Step 3.
+Now you can access the web page on the port you set in Step 2.
 
 ## Optional
 You can configure Apache or Nginx to reverse proxy to port 80.
@@ -64,8 +49,8 @@ Apache Example
 
     ProxyRequests Off
     ProxyPreserveHost On
-    ProxyPass / http://localhost:<the port you set in Step 3>/
-    ProxyPassReverse / http://localhost:<the port you set in Step 3>/
+    ProxyPass / http://localhost:<the port you set in Step 2>/
+    ProxyPassReverse / http://localhost:<the port you set in Step 2>/
 
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
@@ -79,7 +64,7 @@ server {
     server_name example.com;
 
     location / {
-        proxy_pass http://localhost:<the port you set in Step 3>;
+        proxy_pass http://localhost:<the port you set in Step 2>;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;

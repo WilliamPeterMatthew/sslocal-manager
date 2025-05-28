@@ -2,7 +2,7 @@ version: '3'
 
 services:
   ssserver-libev:
-    build: ./libev
+    build: ./ssserver
     container_name: ssserver-libev
     restart: always
     # ports: # 映射端口，如果需要让其他机器访问，请取消注释
@@ -15,13 +15,18 @@ services:
       - TIMEOUT=300
       - METHOD=aes-256-gcm
       - DNS_ADDRS=114.114.114.114,8.8.8.8
-  ss-manager:
-    build: ./manager
-    container_name: ss-manager
+  sslocal-libev:
+    build: ./sslocal
+    container_name: sslocal-libev
     restart: always
-    volumes:
-      - ./.ssconfig.json:/.ssconfig.json:ro
     ports:
       - "1080:1080/udp"   # ss-local 代理端口
       - "1080:1080/tcp"   # ss-local 代理端口
-      - "5000:5000"   # 管理界面端口
+    environment:
+      - SERVER=ssserver-libev
+      - SERVER_PORT=8388
+      - LOCAL_ADDRESS=0.0.0.0
+      - LOCAL_PORT=1080
+      - PASSWORD=Password
+      - TIMEOUT=300
+      - METHOD=aes-256-gcm
