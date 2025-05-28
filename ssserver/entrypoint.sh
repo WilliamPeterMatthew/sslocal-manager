@@ -25,7 +25,7 @@ if [ "$1" = "ss-server" ]; then
         TFO='--fast-open'
         fi
     fi 
-    RT_ARGS="-s $SERVER_ADDR -p $SERVER_PORT -k ${PASSWORD:-$(hostname)} -m $METHOD -a nobody -t $TIMEOUT -u $DNS $TFO $ARGS"
+    RT_ARGS="-s $SERVER -p $SERVER_PORT -k ${PASSWORD:-$(hostname)} -t $TIMEOUT -m $METHOD -a nobody -u $DNS $TFO $ARGS"
 fi
 
 exec $@ $RT_ARGS
