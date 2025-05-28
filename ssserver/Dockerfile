@@ -9,7 +9,6 @@ ENV DNS_ADDRS="114.114.114.114,8.8.8.8"
 ENV TZ=Asia/Shanghai
 ENV ARGS=
 
-# 更新系统包以修复已知漏洞，并安装shadowsocks-libev和依赖
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     shadowsocks-libev \
     procps \
