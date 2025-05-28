@@ -7,7 +7,9 @@ A backup image to start ss-server
 
 Build via Docker Compose, Source Repo: [shadowsocks-libev](https://github.com/shadowsocks/shadowsocks-libev/).
 
-> There is a solution to deploy ss-libev and ss-manager to the local machine at the same time, located in the branch [proxy_local](https://github.com/WilliamPeterMatthew/sslocal-manager/tree/proxy_local)
+> There is a solution to deploy ssserver-libev and ss-manager to the local machine at the same time, located in the branch [proxy_local](https://github.com/WilliamPeterMatthew/sslocal-manager/tree/proxy_local)
+> 
+> There is a solution to deploy ssserver-libev and sslocal-libev to the local machine at the same time, located in the branch [proxy-libev](https://github.com/WilliamPeterMatthew/sslocal-manager/tree/proxy-libev)
 
 ## Step 1
 Clone this repo.

@@ -1,14 +1,16 @@
 version: '3'
 
 services:
-  ss-libev:
+  ssserver-libev:
     image: petermatthew/ssserver-libev
-    container_name: ss-libev
+    container_name: ssserver-libev
     restart: always
     ports:
       - '8388:8388/udp'
       - '8388:8388/tcp'
     environment:
+      - SERVER=0.0.0.0
+      - SERVER_PORT=8388
       - PASSWORD=Password
       - TIMEOUT=300
       - METHOD=aes-256-gcm
