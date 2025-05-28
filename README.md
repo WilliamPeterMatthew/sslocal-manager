@@ -7,7 +7,7 @@ A webpage to manage ss-local
 
 Build via Docker Compose, using the Python Flask framework.
 
-> There is a solution to deploy ss-libev and ss-manager to the local machine at the same time, located in the branch [proxy_local](https://github.com/WilliamPeterMatthew/sslocal-manager/tree/proxy_local)
+> There is a solution to deploy ssserver-libev and ss-manager to the local machine at the same time, located in the branch [proxy_local](https://github.com/WilliamPeterMatthew/sslocal-manager/tree/proxy_local)
 
 ## Step 1
 Clone this repo.
