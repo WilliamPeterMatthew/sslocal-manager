@@ -15,3 +15,7 @@ services:
       - TIMEOUT=300
       - METHOD=aes-256-gcm
       - DNS_ADDRS=114.114.114.114,8.8.8.8
+    
+# networks: # 网络配置，需要使用 IPv6 时取消注释
+#   default:
+#     enable_ipv6: true
