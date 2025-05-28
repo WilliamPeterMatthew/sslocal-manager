@@ -1,12 +1,11 @@
 FROM debian:bookworm-slim
 
-ENV SERVER=ss.example.com
-ENV SERVER_PORT=10080
-ENV LOCAL_ADDRESS=0.0.0.0
-ENV LOCAL_PORT=1080
+ENV SERVER=0.0.0.0
+ENV SERVER_PORT=8388
 ENV PASSWORD=Password
 ENV TIMEOUT=300
 ENV METHOD=aes-256-gcm
+ENV DNS_ADDRS="114.114.114.114,8.8.8.8"
 ENV TZ=Asia/Shanghai
 ENV ARGS=
 
@@ -20,8 +19,8 @@ COPY ./entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-EXPOSE 1080/udp 1080/tcp
+EXPOSE 8388/udp 8388/tcp
 
 STOPSIGNAL SIGINT
 
-CMD ["ss-local"]
+CMD ["ss-server"]

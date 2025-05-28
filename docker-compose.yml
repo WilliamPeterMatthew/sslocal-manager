@@ -2,7 +2,7 @@ version: '3'
 
 services:
   ssserver-libev:
-    build: ./libev
+    build: ./ssserver
     container_name: ssserver-libev
     restart: always
     # ports: # 映射端口，如果需要让其他机器访问，请取消注释
