@@ -37,42 +37,4 @@ docker-compose -f docker-compose-prebuild.yml up -d
 ```
 
 ## Congratulations
-Now you can access the web page on the port you set in Step 2.
-
-## Optional
-You can configure Apache or Nginx to reverse proxy to port 80.
-
-Apache Example
-```apache
-<VirtualHost *:80>
-    ServerName example.com
-
-    ProxyRequests Off
-    ProxyPreserveHost On
-    ProxyPass / http://localhost:<the port you set in Step 2>/
-    ProxyPassReverse / http://localhost:<the port you set in Step 2>/
-
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>
-```
-
-Nginx Example
-```nginx
-server {
-    listen 80;
-    server_name example.com;
-
-    location / {
-        proxy_pass http://localhost:<the port you set in Step 2>;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-
-    error_log /var/log/nginx/sslocal_manager_error.log;
-    access_log /var/log/nginx/sslocal_manager_access.log;
-}
-
-```
+Now you can access the server on the port you set in Step 2.
