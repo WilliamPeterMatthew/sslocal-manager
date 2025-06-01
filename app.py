@@ -48,14 +48,17 @@ def action():
         subprocess.run(["kill", pid])
         os.remove('/var/run/ss-local.pid')
     else:
-        subprocess.Popen([
+        cmd = [
             "ss-local",
             "-c", "/.ssconfig.json",
             "-f", "/var/run/ss-local.pid",
             "-u",
-            TFO,
-            ARGS,
-        ])
+        ]
+        if TFO:
+            cmd.append(TFO)
+        if ARGS:
+            cmd.extend(ARGS.split())
+        subprocess.Popen(cmd)
     
     return redirect('/')
 
