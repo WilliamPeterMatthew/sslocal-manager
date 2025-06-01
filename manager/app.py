@@ -11,7 +11,7 @@ match = re.search(r'(\d+)\.(\d+)', kernel_ver)
 cmv, csv = (int(match.group(1)), int(match.group(2))) if match else (0, 0)
 TFO = ""
 if cmv >= 3 and csv > 7:
-    tfo = "--fast-open"
+    TFO = "--fast-open"
 
 ARGS=os.getenv("ARGS","")
 
