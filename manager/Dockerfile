@@ -6,7 +6,17 @@ ENV ARGS=
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     shadowsocks-libev \
     procps \
- && rm -rf /var/lib/apt/lists/*
+ && apt-get clean autoclean \
+ && apt-get autoremove -y \
+ && rm -rf \
+      /var/lib/apt/lists/* \
+      /var/cache/apt/archives/*.deb \
+      /var/cache/apt/archives/partial/* \
+      /var/cache/apt/*.bin \
+      /var/log/apt \
+      /var/log/*.log \
+      /tmp/* \
+      /var/tmp/*
 
 RUN pip install flask
 
