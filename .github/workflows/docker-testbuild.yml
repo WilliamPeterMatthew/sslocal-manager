@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - sslocal-libev
+  workflow_dispatch:
 
 jobs:
   build:
