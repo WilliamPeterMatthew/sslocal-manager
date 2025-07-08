@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       /tmp/* \
       /var/tmp/*
 
-RUN pip install flask
+RUN pip install --no-cache-dir flask
 
 WORKDIR /app
 COPY templates/ /app/templates/
