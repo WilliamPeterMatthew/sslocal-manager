@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - ssserver-libev
+  workflow_dispatch:
 
 jobs:
   build:
