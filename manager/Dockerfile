@@ -3,7 +3,7 @@ FROM python:3.12-slim-bookworm
 ENV TZ=Asia/Shanghai
 ENV ARGS=
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     shadowsocks-libev \
     procps \
  && apt-get clean autoclean \
