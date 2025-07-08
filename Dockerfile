@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     procps \
  && apt-get clean autoclean \
  && apt-get autoremove -y \
+ && cp /usr/share/zoneinfo/$TZ /etc/localtime \
+ && echo "$TZ" > /etc/timezone \
  && rm -rf \
       /var/lib/apt/lists/* \
       /var/cache/apt/archives/*.deb \
