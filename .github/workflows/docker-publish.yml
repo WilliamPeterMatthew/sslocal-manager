@@ -52,9 +52,11 @@ jobs:
           platforms: linux/386,linux/amd64,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x
           push: true
           tags: |
-            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal-libev:{1}', steps.lowercase-owner.outputs.lower_owner, steps.extract-date.outputs.date) || format('{0}/sslocal-libev:{1}', secrets.DOCKER_USERNAME, steps.extract-date.outputs.date) }}
-            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal-libev:latest', steps.lowercase-owner.outputs.lower_owner)        || format('{0}/sslocal-libev:latest', secrets.DOCKER_USERNAME) }}
-            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal-libev:debian', steps.lowercase-owner.outputs.lower_owner)        || format('{0}/sslocal-libev:debian', secrets.DOCKER_USERNAME) }}
-            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal-libev:bookworm', steps.lowercase-owner.outputs.lower_owner)      || format('{0}/sslocal-libev:bookworm', secrets.DOCKER_USERNAME) }}
-            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal-libev:slim', steps.lowercase-owner.outputs.lower_owner)          || format('{0}/sslocal-libev:slim', secrets.DOCKER_USERNAME) }}
-            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal-libev:bookworm-slim', steps.lowercase-owner.outputs.lower_owner) || format('{0}/sslocal-libev:bookworm-slim', secrets.DOCKER_USERNAME) }}
+            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal-libev:{1}', steps.lowercase-owner.outputs.lower_owner, steps.extract-date.outputs.date)        || format('{0}/sslocal-libev:{1}', secrets.DOCKER_USERNAME, steps.extract-date.outputs.date) }}
+            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal-libev:latest', steps.lowercase-owner.outputs.lower_owner)                                      || format('{0}/sslocal-libev:latest', secrets.DOCKER_USERNAME) }}
+            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal-libev:{1}-debian', steps.lowercase-owner.outputs.lower_owner, steps.extract-date.outputs.date) || format('{0}/sslocal-libev:{1}-debian', secrets.DOCKER_USERNAME, steps.extract-date.outputs.date) }}
+            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal-libev:latest-debian', steps.lowercase-owner.outputs.lower_owner)                               || format('{0}/sslocal-libev:latest-debian', secrets.DOCKER_USERNAME) }}
+            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal-libev:debian', steps.lowercase-owner.outputs.lower_owner)                                      || format('{0}/sslocal-libev:debian', secrets.DOCKER_USERNAME) }}
+            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal-libev:bookworm', steps.lowercase-owner.outputs.lower_owner)                                    || format('{0}/sslocal-libev:bookworm', secrets.DOCKER_USERNAME) }}
+            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal-libev:bookworm-slim', steps.lowercase-owner.outputs.lower_owner)                               || format('{0}/sslocal-libev:bookworm-slim', secrets.DOCKER_USERNAME) }}
+            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal-libev:slim', steps.lowercase-owner.outputs.lower_owner)                                        || format('{0}/sslocal-libev:slim', secrets.DOCKER_USERNAME) }}
