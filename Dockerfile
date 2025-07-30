@@ -27,6 +27,6 @@ COPY templates/ /app/templates/
 COPY ./app.py /app/app.py
 RUN chmod +x /app/app.py
 
-EXPOSE 5000 1080/udp 1080/tcp
+EXPOSE 6000 8388/udp 8388/tcp
 
 CMD ["python", "app.py"]

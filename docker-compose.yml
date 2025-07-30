@@ -8,9 +8,9 @@ services:
     volumes:
       - ./.ssconfig.json:/.ssconfig.json:ro
     ports:
-      - "1080:1080/udp"   # ss-local 代理端口
-      - "1080:1080/tcp"   # ss-local 代理端口
-      - "5000:5000"   # 管理界面端口
+      - "8388:8388/udp"   # ss-server 代理端口
+      - "8388:8388/tcp"   # ss-server 代理端口
+      - "6000:6000"   # 管理界面端口
     
 # networks: # 网络配置，需要使用 IPv6 时取消注释
 #   default:

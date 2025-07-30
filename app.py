@@ -17,7 +17,7 @@ ARGS=os.getenv("ARGS","")
 
 def get_status():
     try:
-        with open('/var/run/ss-local.pid', 'r') as f:
+        with open('/var/run/ss-server.pid', 'r') as f:
             pid = f.read().strip()
         
         # 检查进程是否存在
@@ -46,13 +46,15 @@ def action():
     
     if running:
         subprocess.run(["kill", pid])
-        os.remove('/var/run/ss-local.pid')
+        os.remove('/var/run/ss-server.pid')
     else:
         cmd = [
-            "ss-local",
+            "ss-server",
             "-c", "/.ssconfig.json",
-            "-f", "/var/run/ss-local.pid",
+            "-f", "/var/run/ss-server.pid",
+            "-a", "nobody",
             "-u",
+            "-d", "114.114.114.114,8.8.8.8",
         ]
         if TFO:
             cmd.append(TFO)
@@ -63,4 +65,4 @@ def action():
     return redirect('/')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=6000)
