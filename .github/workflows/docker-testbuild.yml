@@ -3,7 +3,7 @@ name: Build Docker Image
 on:
   push:
     branches:
-      - master
+      - ssserver-manager
   workflow_dispatch:
 
 jobs:
