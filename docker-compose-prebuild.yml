@@ -1,12 +1,12 @@
 version: '3'
 
 services:
-  ss-manager:
+  ssserver-manager-libev:
     image: petermatthew/ssserver-manager
-    container_name: ss-manager
+    container_name: ssserver-manager-libev
     restart: always
     volumes:
-      - ./.ssconfig.json:/.ssconfig.json:ro
+      - ./manager.server.ssconfig.json:/.ssconfig.json:ro
     ports:
       - "8388:8388/udp"   # ss-server 代理端口
       - "8388:8388/tcp"   # ss-server 代理端口
