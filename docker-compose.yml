@@ -15,9 +15,34 @@ services:
       - TIMEOUT=300
       - METHOD=aes-256-gcm
       - DNS_ADDRS=114.114.114.114,8.8.8.8
-  ss-manager:
-    build: ./manager
-    container_name: ss-manager
+  # sslocal-libev:
+  #   build: ./sslocal
+  #   container_name: sslocal-libev
+  #   restart: always
+  #   ports:
+  #     - '1080:1080/udp'
+  #     - '1080:1080/tcp'
+  #   environment:
+  #     - SERVER=ssserver-libev
+  #     - SERVER_PORT=8388
+  #     - LOCAL_ADDRESS=0.0.0.0
+  #     - LOCAL_PORT=1080
+  #     - PASSWORD=Password
+  #     - TIMEOUT=300
+  #     - METHOD=aes-256-gcm
+  # ssserver-manager-libev:
+  #   build: ./ssserver-manager
+  #   container_name: ssserver-manager-libev
+  #   restart: always
+  #   volumes:
+  #     - ./manager.server.ssconfig.json:/.ssconfig.json:ro
+  #   ports:
+  #     # - "8388:8388/udp"   # ss-server 代理端口
+  #     # - "8388:8388/tcp"   # ss-server 代理端口
+  #     - "6000:6000"   # 管理界面端口
+  sslocal-manager-libev:
+    build: ./sslocal-manager
+    container_name: sslocal-manager-libev
     restart: always
     volumes:
       - ./.ssconfig.json:/.ssconfig.json:ro

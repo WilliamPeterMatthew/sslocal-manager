@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ss-server Manager</title>
+</head>
+<body>
+    {% if running %}
+        <h1 style="color: green;">Running With PID {{ pid }}</h1>
+        <form method="post" action="/action">
+            <button type="submit" style="background-color: #ff4444; color: white;">Stop</button>
+        </form>
+    {% else %}
+        <h1 style="color: red;">Not Running</h1>
+        <form method="post" action="/action">
+            <button type="submit" style="background-color: #00C851; color: white;">Start</button>
+        </form>
+    {% endif %}
+</body>
+</html>

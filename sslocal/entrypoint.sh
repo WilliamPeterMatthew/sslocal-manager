@@ -1,0 +1,27 @@
+#!/bin/sh
+# vim:sw=4:ts=4:et
+
+set -e
+
+if [ "$1" = "ss-local" ]; then
+    COREVER=$(uname -r | grep -Eo '[0-9].[0-9]+' | sed -n '1,1p')
+    CMV=$(echo $COREVER | awk -F '.' '{print $1}')
+    CSV=$(echo $COREVER | awk -F '.' '{print $2}')
+
+    if [[ -f "$PASSWORD_FILE" ]]; then
+        PASSWORD=$(cat "$PASSWORD_FILE")
+    fi
+    
+    if [[ -f "/var/run/secrets/$PASSWORD_SECRET" ]]; then
+        PASSWORD=$(cat "/var/run/secrets/$PASSWORD_SECRET")
+    fi
+
+    if [ $(echo "$CMV >= 3" | bc) ]; then
+        if [ $(echo "$CSV > 7" | bc) ]; then
+        TFO='--fast-open'
+        fi
+    fi 
+    RT_ARGS="-s $SERVER -p $SERVER_PORT -b $LOCAL_ADDRESS -l $LOCAL_PORT -k ${PASSWORD:-$(hostname)} -t $TIMEOUT -m $METHOD -u $TFO $ARGS"
+fi
+
+exec $@ $RT_ARGS

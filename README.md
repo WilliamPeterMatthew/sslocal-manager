@@ -7,6 +7,24 @@ A webpage to manage ss-local
 
 Build via Docker Compose, using the Python Flask framework.
 
+# ssserver-manager
+A webpage to manage ss-server
+
+![Docker Pulls](https://img.shields.io/docker/pulls/petermatthew/ssserver-manager)
+![Docker Image Size](https://img.shields.io/docker/image-size/petermatthew/ssserver-manager)
+![Docker Image Version](https://img.shields.io/docker/v/petermatthew/ssserver-manager)
+
+Build via Docker Compose, using the Python Flask framework.
+
+# sslocal-libev
+A backup image to start ss-local
+
+![Docker Pulls](https://img.shields.io/docker/pulls/petermatthew/sslocal-libev)
+![Docker Image Size](https://img.shields.io/docker/image-size/petermatthew/sslocal-libev)
+![Docker Image Version](https://img.shields.io/docker/v/petermatthew/sslocal-libev)
+
+Build via Docker Compose, Source Repo: [shadowsocks-libev](https://github.com/shadowsocks/shadowsocks-libev/).
+
 # ssserver-libev
 A backup image to start ss-server
 
@@ -23,13 +41,27 @@ git clone https://github.com/WilliamPeterMatthew/sslocal-manager.git -b proxy_lo
 ```
 
 ## Step 2
-Modify `.ssconfig.json` file like this.
+Modify `manager.local.ssconfig.json` file like this.
+
 ```
   {
     "server": "ssserver-libev",
     "server_port": 8388,
     "local_address": "0.0.0.0",
     "local_port": 1080,
+    "password": "Password",
+    "timeout": 300,
+    "method": "aes-256-gcm"
+  }
+
+```
+
+Modify `manager.server.ssconfig.json` file like this.
+
+```
+  {
+    "server": "0.0.0.0",
+    "server_port": 8388,
     "password": "Password",
     "timeout": 300,
     "method": "aes-256-gcm"
@@ -86,8 +118,8 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 
-    error_log /var/log/nginx/sslocal_manager_error.log;
-    access_log /var/log/nginx/sslocal_manager_access.log;
+    error_log /var/log/nginx/ss_manager_error.log;
+    access_log /var/log/nginx/ss_manager_access.log;
 }
 
 ```
