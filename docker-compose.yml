@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  ss-manager:
+  ssserver-manager-libev:
     build: .
-    container_name: ss-manager
+    container_name: ssserver-manager-libev
     restart: always
     volumes:
       - ./manager.server.ssconfig.json:/.ssconfig.json:ro
