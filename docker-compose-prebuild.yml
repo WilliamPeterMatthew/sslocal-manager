@@ -2,7 +2,7 @@ version: '3'
 
 services:
   sslocal-manager-libev:
-    image: petermatthew/sslocal-manager
+    image: petermatthew/sslocal-manager-libev
     container_name: sslocal-manager-libev
     restart: always
     volumes:
