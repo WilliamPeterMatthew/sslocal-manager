@@ -31,7 +31,7 @@ services:
   #     - TIMEOUT=300
   #     - METHOD=aes-256-gcm
   # ssserver-manager-libev:
-  #   image: petermatthew/ssserver-manager
+  #   image: petermatthew/ssserver-manager-libev
   #   container_name: ssserver-manager-libev
   #   restart: always
   #   volumes:
@@ -41,7 +41,7 @@ services:
   #     # - "8388:8388/tcp"   # ss-server 代理端口
   #     - "6000:6000"   # 管理界面端口
   sslocal-manager-libev:
-    image: petermatthew/sslocal-manager
+    image: petermatthew/sslocal-manager-libev
     container_name: sslocal-manager-libev
     restart: always
     volumes:
