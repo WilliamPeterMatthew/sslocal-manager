@@ -2,7 +2,7 @@ version: '3'
 
 services:
   ssserver-manager-libev:
-    image: petermatthew/ssserver-manager
+    image: petermatthew/ssserver-manager-libev
     container_name: ssserver-manager-libev
     restart: always
     volumes:
