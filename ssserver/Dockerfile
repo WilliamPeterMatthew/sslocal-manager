@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM debian:trixie-slim
 
 ENV SERVER=0.0.0.0
 ENV SERVER_PORT=8388

@@ -1,4 +1,4 @@
-FROM python:3.12-slim-bookworm
+FROM python:3.13.6-slim-trixie
 
 ENV TZ=Asia/Shanghai
 ENV ARGS=
