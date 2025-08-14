@@ -49,7 +49,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          platforms: linux/386,linux/amd64,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x
+          platforms: linux/386,linux/amd64,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x,linux/riscv64
           push: true
           tags: |
             ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal:{1}', steps.lowercase-owner.outputs.lower_owner, steps.extract-date.outputs.date)        || format('{0}/sslocal:{1}', secrets.DOCKER_USERNAME, steps.extract-date.outputs.date) }}
@@ -57,6 +57,6 @@ jobs:
             ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal:{1}-debian', steps.lowercase-owner.outputs.lower_owner, steps.extract-date.outputs.date) || format('{0}/sslocal:{1}-debian', secrets.DOCKER_USERNAME, steps.extract-date.outputs.date) }}
             ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal:latest-debian', steps.lowercase-owner.outputs.lower_owner)                               || format('{0}/sslocal:latest-debian', secrets.DOCKER_USERNAME) }}
             ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal:debian', steps.lowercase-owner.outputs.lower_owner)                                      || format('{0}/sslocal:debian', secrets.DOCKER_USERNAME) }}
-            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal:bookworm', steps.lowercase-owner.outputs.lower_owner)                                    || format('{0}/sslocal:bookworm', secrets.DOCKER_USERNAME) }}
-            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal:bookworm-slim', steps.lowercase-owner.outputs.lower_owner)                               || format('{0}/sslocal:bookworm-slim', secrets.DOCKER_USERNAME) }}
+            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal:trixie', steps.lowercase-owner.outputs.lower_owner)                                      || format('{0}/sslocal:trixie', secrets.DOCKER_USERNAME) }}
+            ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal:trixie-slim', steps.lowercase-owner.outputs.lower_owner)                                 || format('{0}/sslocal:trixie-slim', secrets.DOCKER_USERNAME) }}
             ${{ matrix.registry == 'ghcr' && format('ghcr.io/{0}/sslocal:slim', steps.lowercase-owner.outputs.lower_owner)                                        || format('{0}/sslocal:slim', secrets.DOCKER_USERNAME) }}
